@@ -1,138 +1,126 @@
-@import url('https://fonts.googleapis.com/css2?family=Segoe+Print&display=swap');
-
-body {
+/* Reset margin dan padding */
+body, html {
     margin: 0;
     padding: 0;
-    background: url('images/background.jpg') no-repeat center center fixed;
-    background-size: cover;
+    font-family: Cambria, serif; /* Mengubah font menjadi Cambria */
+}
+
+/* Gaya untuk header */
+.section-header {
+    background: rgba(0, 0, 0, 0.8); /* Latar belakang agak gelap */
+    color: white;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Header di atas gambar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Efek bayangan */
+    text-align: center; /* Menyusun teks di tengah */
+}
+
+/* Gaya untuk judul header */
+.section-header h1 {
+    margin: 0;
+    font-size: 2em; /* Ukuran font yang lebih besar untuk judul */
+    color: red; /* Mengubah warna teks menjadi merah */
+}
+
+/* Gaya untuk navigasi di header */
+.section-header nav {
+    margin-top: 10px;
+}
+
+/* Gaya untuk daftar navigasi */
+.section-header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    height: 100vh;
-    overflow: hidden;
-    font-family: 'Segoe Print', sans-serif; /* Tambahkan font family untuk body */
 }
 
-.gallery {
-    display: flex;
-    gap: 20px;
-    margin-top: 20px;
+/* Gaya untuk item daftar navigasi */
+.section-header nav ul li {
+    margin: 0 10px;
 }
 
-.photo {
-    position: relative;
-    width: 300px;
-    height: 300px;
-    animation: bounce 2s infinite;
-}
-
-.photo img {
-    width: 100%;
-    height: 100%;
+/* Gaya untuk link navigasi */
+.section-header nav ul li a {
     display: block;
-}
-
-.photo span {
-    display: none;
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    padding: 5px;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    background: rgba(50, 50, 50, 0.6); /* Latar belakang kotak menu */
     border-radius: 5px;
-    white-space: nowrap;
-    font-family: 'Segoe Print', sans-serif; /* Tambahkan font family untuk span */
-    font-size: 22px; /* Atur ukuran font menjadi 22px */
+    font-weight: 600; /* Font tebal untuk item menu */
+    transition: background 0.3s ease, transform 0.3s ease;
+    text-transform: uppercase; /* Mengubah teks menjadi huruf kapital */
 }
 
-.photo:hover span {
-    display: block;
+/* Gaya untuk link navigasi saat dihover */
+.section-header nav ul li a:hover {
+    background: rgba(70, 70, 70, 0.8); /* Warna latar belakang saat hover */
+    transform: scale(1.05); /* Efek zoom saat hover */
 }
 
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-30px);
-    }
-}
-
-.photo:nth-child(1) {
-    animation-delay: calc(0.5s * var(--random));
-}
-
-.photo:nth-child(2) {
-    animation-delay: calc(1s * var(--random));
-}
-
-.photo:nth-child(3) {
-    animation-delay: calc(1.5s * var(--random));
-}
-
-.photo:nth-child(4) {
-    animation-delay: calc(2s * var(--random));
-}
-
-.slide-background {
-    position: fixed;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    height: 100%;
+/* Gaya untuk latar belakang */
+.background {
+    background-image: url('images/background1.jpg');
+    background-attachment: fixed;
     background-size: cover;
-    z-index: -1;
-    animation: slideDown 1s forwards;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-@keyframes slideDown {
-    to {
-        top: 0;
-    }
+/* Gaya untuk section */
+section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    color: #333;
+    border-bottom: 1px solid black; /* Menambahkan garis hitam di bawah setiap section */
 }
 
-.hover-text {
-    display: none;
-    position: absolute;
-    top: 370px; /* Atur posisi hover text lebih ke bawah */
-    right: 30px; /* Tambahkan jarak dari kanan */
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    padding: 10px; /* Tambahkan padding untuk memberikan ruang di sekitar teks */
-    border-radius: 5px;
-    white-space: nowrap;
-    font-family: 'Segoe Print', sans-serif;
-    font-size: 35px; /* Perbesar ukuran font menjadi 35px */
-    animation: slideIn 0.5s forwards;
-    text-align: right; /* Rata kanan teks */
-    max-width: calc(100% - 40px); /* Batasi lebar maksimum */
-    box-sizing: border-box; /* Termasuk padding dan border dalam lebar */
+/* Gaya untuk section 1 */
+#section1 {
+    background: rgba(255, 255, 255, 0.8);
+    padding-top: 125px; /* Menambahkan padding top untuk memberi ruang bagi header tetap di atas */
+    position: relative; /* Memastikan posisi relatif untuk elemen anak */
+    overflow: hidden; /* Menyembunyikan konten yang melampaui batas */
 }
 
-.hover-text a {
-    color: #fff; /* Atur warna teks link */
-    text-decoration: none; /* Hapus garis bawah pada link */
-    display: inline-block;
-    white-space: nowrap; /* Pastikan teks link tidak terpotong */
+/* Gaya untuk kontainer konten */
+.content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.hover-text a:hover {
-    text-decoration: underline; /* Tambahkan garis bawah saat hover link */
+/* Gaya untuk kontainer gambar */
+.image-container {
+    position: relative; /* Mengatur posisi gambar tetap relatif terhadap parent */
+    width: 50%; /* Menyediakan lebar untuk gambar */
 }
 
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        top: 390px; /* Sesuaikan animasi agar sesuai dengan posisi hover text baru */
-    }
-    to {
-        opacity: 1;
-        top: 370px;
-    }
+/* Gaya untuk gambar */
+.image-container img {
+    width: 100%; /* Menyesuaikan lebar gambar dengan kontainer */
+    height: auto; /* Menjaga ukuran gambar sesuai resolusi asli */
+    opacity: 0.3; /* Menghapus efek opacity */
 }
 
-.photo:hover .hover-text {
-    display: block;
+/* Gaya untuk kontainer teks */
+.text-container {
+    margin-left: 150px; /* Jarak antara gambar dan teks */
+    width: 50%; /* Menyediakan lebar untuk teks */
+}
+
+/* Gaya untuk teks tanpa efek glowing */
+.text-container p {
+    font-size: 2.5em; /* Ukuran font yang lebih besar untuk teks */
+    line-height: 1.6; /* Jarak antar baris teks */
+    color: rgb(0, 0, 0); /* Warna teks */
+    text-shadow: none; /* Menghapus efek glowing text */
 }
